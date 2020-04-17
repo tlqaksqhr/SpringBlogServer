@@ -45,7 +45,6 @@ public class CommentController {
         Comment newComment = commentRepository.findById(commentID).get();
         newComment.setTitle(comment.getTitle());
         newComment.setContent(comment.getContent());
-        newComment.setWriter(comment.getWriter());
         return newComment;
     }
 

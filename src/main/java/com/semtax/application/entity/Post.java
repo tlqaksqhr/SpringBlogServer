@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Post {
+public class Post extends BaseEntity{
 
     @Id @GeneratedValue
     @Column(name = "post_id")
@@ -13,8 +13,6 @@ public class Post {
 
     private String title;
     private String content;
-
-    private String writer;
 
 
     public Long getId() {
@@ -41,10 +39,6 @@ public class Post {
         this.content = content;
     }
 
-    public String getWriter() { return writer; }
-
-    public void setWriter(String writer) { this.writer = writer; }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -52,12 +46,11 @@ public class Post {
         Post post = (Post) o;
         return Objects.equals(Id, post.Id) &&
                 Objects.equals(title, post.title) &&
-                Objects.equals(content, post.content) &&
-                Objects.equals(writer, post.writer);
+                Objects.equals(content, post.content);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id, title, content, writer);
+        return Objects.hash(Id, title, content);
     }
 }

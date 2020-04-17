@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-public class Comment {
+public class Comment extends BaseEntity{
 
     @Id @GeneratedValue
     @Column(name = "comment_id")
@@ -13,8 +13,6 @@ public class Comment {
 
     private String title;
     private String content;
-
-    private String writer;
 
     @ManyToOne
     @JoinColumn(name = "post_id")
@@ -44,14 +42,6 @@ public class Comment {
         this.content = content;
     }
 
-    public String getWriter() {
-        return writer;
-    }
-
-    public void setWriter(String writer) {
-        this.writer = writer;
-    }
-
     public Post getPost() {
         return post;
     }
@@ -67,12 +57,11 @@ public class Comment {
         Comment comment = (Comment) o;
         return Objects.equals(Id, comment.Id) &&
                 Objects.equals(title, comment.title) &&
-                Objects.equals(content, comment.content) &&
-                Objects.equals(writer, comment.writer);
+                Objects.equals(content, comment.content);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id, title, content, writer);
+        return Objects.hash(Id, title, content);
     }
 }

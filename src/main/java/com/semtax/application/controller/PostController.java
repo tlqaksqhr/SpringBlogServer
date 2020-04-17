@@ -3,7 +3,10 @@ package com.semtax.application.controller;
 import com.semtax.application.controller.exception.NoItemError;
 import com.semtax.application.controller.exception.PathFormatError;
 import com.semtax.application.entity.Post;
+import com.semtax.application.interceptor.LoginInterceptor;
 import com.semtax.application.repository.PostRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
